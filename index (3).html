@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYUSH'S Enhanced Music Player</title>
+    <link href="enhanced-style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="music-player">
+        <div class="player-header">
+            <h1><i class="fas fa-music"></i> AYUSH'S music player</h1>
+        </div>
+        
+        <div class="album-art">
+            <img id="albumArt" src="./attached_assets/icon_1753919744489.png" alt="Album Art">
+            <div class="vinyl-effect"></div>
+        </div>
+        
+        <div class="track-info">
+            <h2 id="trackTitle">Select a song</h2>
+            <p id="trackArtist">Unknown Artist</p>
+        </div>
+        
+        <div class="progress-container">
+            <span id="currentTime">0:00</span>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+                <div class="progress-handle" id="progressHandle"></div>
+            </div>
+            <span id="duration">0:00</span>
+        </div>
+        
+        <div class="controls">
+            <button class="control-btn" id="prevBtn" title="Previous (Ctrl+←)"><i class="fas fa-step-backward"></i></button>
+            <button class="control-btn play-pause" id="playPauseBtn" title="Play/Pause (Space)"><i class="fas fa-play"></i></button>
+            <button class="control-btn" id="nextBtn" title="Next (Ctrl+→)"><i class="fas fa-step-forward"></i></button>
+        </div>
+        
+        <div class="volume-container">
+            <i class="fas fa-volume-down"></i>
+            <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider" title="Volume (Ctrl+↑/↓)">
+            <i class="fas fa-volume-up"></i>
+        </div>
+        
+        <div class="playlist">
+            <h3>
+                <span><i class="fas fa-list"></i> My Library</span>
+                <div class="playlist-management">
+                    <button class="mgmt-btn" id="exportPlaylist" title="Export Playlist">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="mgmt-btn" id="clearAll" title="Clear All Songs">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </h3>
+            
+            <div class="search-container">
+                <div class="search-input-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search your music..." class="search-input">
+                    <button id="clearSearch" class="clear-search" style="display: none;"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            
+            <div class="playlist-container">
+                <div class="upload-section">
+                    <label for="audioUpload" class="upload-btn">
+                        <i class="fas fa-plus"></i> Add Music
+                    </label>
+                    <input type="file" id="audioUpload" accept="audio/*" multiple style="display: none;">
+                    <div class="upload-hint">or drag & drop files here</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="audioPlayer" preload="metadata"></audio>
+    <script src="enhanced-script.js"></script>
+</body>
+</html>
